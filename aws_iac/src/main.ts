@@ -1,6 +1,7 @@
 import { App, Stack, StackProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { DozerProcessDataStacks } from './apigw-lambda-sqs';
+import { DozerEcrStack } from './ecr';
 import { buildCluster } from './eks-blueprints/builder';
 import { DozerIRSAStack } from './irsa';
 import { EnvironmentConfig, devEnv } from './shared/environment';
@@ -22,7 +23,13 @@ export class EksClusterStack extends Stack {
         description: 'Dozer IRSA',
         env: reg,
         iamOidcArn: _cluster.openIdConnectProvider.openIdConnectProviderArn,
+        oidcIssuer: _cluster.openIdConnectProvider.openIdConnectProviderIssuer,
         sqsArn: dozer.sqsArn
+      });
+
+      new DozerEcrStack(this, `${reg.pattern}-DozerECR`, {
+        description: 'Dozer ECR',
+        env: reg
       })
     });
   }

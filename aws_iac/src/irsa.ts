@@ -6,6 +6,7 @@ import { EnvironmentConfig } from "./shared/environment";
 
 export interface IRSAProps extends StackProps {
   iamOidcArn: string;
+  oidcIssuer: string;
   sqsArn: string;
 }
 
@@ -15,17 +16,10 @@ export class DozerIRSAStack extends Stack {
 
     const prefix = `${reg.pattern}-${reg.stage}-dozer`;
 
-    const _oidc = props.iamOidcArn.match(/[^\/]*$/g);
-    const oidc = _oidc ? _oidc[0] : '';
-    const oidcProvider = `oidc.eks.${reg.region}.amazonaws.com/id/${oidc}`;
-    const oidcArn = props.iamOidcArn;
-
-    const StringLike = new CfnJson(this, 'DozerJobSA', {
+    const StringEquals = new CfnJson(this, 'DozerJobSA', {
       value: {
-        [`${oidcProvider}:sub`]: [
-            `system:serviceaccount:kube-system:${DOZER_JOB_SA}`
-          ],
-        [`${oidcProvider}:aud`]: 'sts.amazonaws.com',
+        [`${props.oidcIssuer}:sub`]: [ `system:serviceaccount:default:${DOZER_JOB_SA}` ],
+        [`${props.oidcIssuer}:aud`]: 'sts.amazonaws.com',
       },
     });
 
@@ -33,9 +27,9 @@ export class DozerIRSAStack extends Stack {
       description: 'Dozer job role',
       roleName: `${prefix}-role`,
       assumedBy: new FederatedPrincipal(
-        oidcArn,
+        props.iamOidcArn,
         {
-            StringLike: StringLike,
+          StringEquals: StringEquals,
         },
         'sts:AssumeRoleWithWebIdentity'
       )
@@ -52,7 +46,5 @@ export class DozerIRSAStack extends Stack {
       resources: [props.sqsArn]
     });
     jobRole.addToPolicy(sts);
-
-
   }
 }

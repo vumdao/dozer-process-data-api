@@ -1,6 +1,6 @@
 import {
-  AsgClusterProvider, AwsLoadBalancerControllerAddOn, AwsNodeTerminationHandlerAddOn,
-  ClusterAddOn, EbsCsiDriverAddOn, EfsCsiDriverAddOn, KarpenterAddOn, KedaAddOn, MetricsServerAddOn, Mode, PlatformTeam, VpcCniAddOn,
+  AsgClusterProvider, AwsNodeTerminationHandlerAddOn, Mode, PlatformTeam, VpcCniAddOn,
+  ClusterAddOn, EbsCsiDriverAddOn, KarpenterAddOn, KedaAddOn, MetricsServerAddOn
 } from '@aws-quickstart/eks-blueprints';
 import { InstanceClass, InstanceSize, InstanceType } from 'aws-cdk-lib/aws-ec2';
 import { KubernetesVersion, MachineImageType } from 'aws-cdk-lib/aws-eks';
@@ -10,7 +10,6 @@ import { EnvironmentConfig } from '../shared/environment';
 import { PlatformUsers } from './platform-user';
 
 export function EksAddOns(): Array<ClusterAddOn> {
-
   const AddOns: Array<ClusterAddOn> = [
     new VpcCniAddOn,
     new MetricsServerAddOn,
@@ -19,19 +18,14 @@ export function EksAddOns(): Array<ClusterAddOn> {
     }),
     new KarpenterAddOn({
       version: '0.16.1',
-      release: 'karpenter'
+      release: 'karpenter',
     }),
-    new AwsLoadBalancerControllerAddOn({
-      version: '1.4.4',
-      enableWaf: false,
-    }),
-    new EfsCsiDriverAddOn,
-    new EbsCsiDriverAddOn,
+    new EbsCsiDriverAddOn
   ];
 
   AddOns.push(
     new KedaAddOn({
-      version: "2.7.2",
+      version: "2.8.2",
       podSecurityContextFsGroup: 1001,
       securityContextRunAsGroup: 1001,
       securityContextRunAsUser: 1001,
