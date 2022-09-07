@@ -46,7 +46,7 @@ export class DozerJobProvisioner extends Chart {
           value: 'tets',
           effect: 'NoSchedule',
         }],
-        ttlSecondsAfterEmpty: 30,
+        ttlSecondsAfterEmpty: 60,
       },
     });
   }

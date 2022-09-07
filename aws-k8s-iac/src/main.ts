@@ -20,14 +20,15 @@ export class EksClusterStack extends Stack {
     super(scope, id, props);
 
     buildCluster(this, reg).then((_cluster) => {
-      const dozer = new DozerProcessDataStacks(this, `${reg.pattern}-DozerProcessData`, reg, {
-        description: 'Dozer Stacks',
-        env: reg
-      });
-
       const ddb = new DozerDDBStack(this, `${reg.pattern}-DozerDDB`, {
         description: 'Dozer DDB table',
         env: reg
+      });
+
+      const dozer = new DozerProcessDataStacks(this, `${reg.pattern}-DozerProcessData`, reg, {
+        description: 'Dozer Stacks',
+        env: reg,
+        ddbTableName: ddb.ddbTableName
       });
 
       new DozerIRSAStack(this, `${reg.pattern}-DozerIRSA`, reg, {
@@ -44,13 +45,18 @@ export class EksClusterStack extends Stack {
         env: reg
       });
 
+      /**
+       * Add Kubernetes manifests such as keda scaledJob, karpenter provisioner
+       * and serviceAccount for k8s Job pod.
+       * We DON'T need k8s manifest but we can reference from output in `dist` folder
+       */
       const keda = new cdk8s.App({
         outputFileExtension: '.yaml',
         outdir: 'dist/keda',
       });
       const dozerJob = new DozerKedaJob(keda, 'dozer-job',{
-        sqlUrl: dozer.sqsArn,
-        ddbTableArn: ddb.ddbArn,
+        sqlUrl: dozer.sqsUrl,
+        ddbTableName: ddb.ddbTableName,
         region: CDK_DEFAULT_REGION
       });
       keda.synth()
@@ -69,7 +75,7 @@ export class EksClusterStack extends Stack {
         outdir: 'dist/sa',
       });
       const dozerSa = new DozerJobSA(sa, 'dozer-job-sa', {
-        roleArn: `${reg.pattern}-${reg.stage}-dozer-role`
+        roleArn: `arn:aws:iam::107858015234:role/${reg.pattern}-${reg.stage}-dozer-role`
       });
       sa.synth()
 

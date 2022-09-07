@@ -4,7 +4,7 @@ import { ScaledJob } from '../imports/keda.sh';
 
 export interface AwsResources {
   sqlUrl: string;
-  ddbTableArn: string;
+  ddbTableName: string;
   region: string;
 }
 export class DozerKedaJob extends Chart {
@@ -24,7 +24,7 @@ export class DozerKedaJob extends Chart {
                 image: '107858015234.dkr.ecr.ap-southeast-1.amazonaws.com/dozer/process-job:latest',
                 env: [
                   { name: 'AWS_SQS_URL', value: props.sqlUrl },
-                  { name: 'AWS_DDB_TABLE', value: props.ddbTableArn },
+                  { name: 'AWS_DDB_TABLE', value: props.ddbTableName },
                 ],
               }],
               restartPolicy: 'Never',

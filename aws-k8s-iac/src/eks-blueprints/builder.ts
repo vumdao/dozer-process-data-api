@@ -5,6 +5,9 @@ import { EnvironmentConfig } from "../shared/environment";
 import { TagsProp } from "../shared/tagging";
 import { EksAddOns, EksComponents, PlatformAdmin } from "./eks-blueprint";
 
+/**
+ * EKS Blueprints with AddOns
+ */
 export function buildCluster(scope: Construct, reg: EnvironmentConfig): Promise<Cluster> {
   return new Promise<Cluster>((resolve, _) => {
     let eksName = `${reg.pattern}-${reg.stage}-${reg.envTag}`;
