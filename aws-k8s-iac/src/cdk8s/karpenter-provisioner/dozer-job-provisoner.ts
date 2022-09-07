@@ -1,10 +1,15 @@
 import { Chart } from 'cdk8s';
 import { Construct } from 'constructs';
 import { Provisioner } from '../imports/karpenter.sh';
-import { DEV_EKS_CLUSTER_NAME, DEV_KARPENTER_INSTANCE_PROFILE } from './provisioner-constants';
+import { DEV_KARPENTER_INSTANCE_PROFILE } from './provisioner-constants';
+
+
+export interface EksResources {
+  clusterName: string;
+}
 
 export class DozerJobProvisioner extends Chart {
-  constructor(scope: Construct, name: string) {
+  constructor(scope: Construct, name: string, props: EksResources) {
     super(scope, name);
 
     new Provisioner(this, `${name}-provisioner`, {
@@ -19,10 +24,10 @@ export class DozerJobProvisioner extends Chart {
           amiFamily: 'Bottlerocket',
           tags: {
             'eks/nodegroup-name': name,
-            'eks/cluster-name': DEV_EKS_CLUSTER_NAME,
+            'eks/cluster-name': props.clusterName,
           },
-          subnetSelector: { Name: `*${DEV_EKS_CLUSTER_NAME}*Private*` },
-          securityGroupSelector: { [`kubernetes.io/cluster/${DEV_EKS_CLUSTER_NAME}`]: 'owned' },
+          subnetSelector: { Name: `*${props.clusterName}*Private*` },
+          securityGroupSelector: { [`kubernetes.io/cluster/${props.clusterName}`]: 'owned' },
         },
         requirements: [
           {

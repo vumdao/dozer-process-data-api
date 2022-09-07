@@ -8,6 +8,7 @@ export interface IRSAProps extends StackProps {
   iamOidcArn: string;
   oidcIssuer: string;
   sqsArn: string;
+  ddbArn: string;
 }
 
 export class DozerIRSAStack extends Stack {
@@ -35,7 +36,7 @@ export class DozerIRSAStack extends Stack {
       )
     });
 
-    const sts = new PolicyStatement({
+    const sqsSts = new PolicyStatement({
       sid: 'SQSConsumeMsg',
       actions: [
         'sqs:DeleteMessage',
@@ -45,6 +46,22 @@ export class DozerIRSAStack extends Stack {
       ],
       resources: [props.sqsArn]
     });
-    jobRole.addToPolicy(sts);
+
+    const ddbSts = new PolicyStatement({
+      sid: 'DDBReadWrite',
+      actions: [
+        "dynamodb:DescribeTable",
+        "dynamodb:Query",
+        "dynamodb:Scan",
+        "dynamodb:GetItem",
+        "dynamodb:Scan",
+        "dynamodb:UpdateItem",
+        "dynamodb:PutItem",
+      ],
+      resources: [props.ddbArn]
+    });
+
+    jobRole.addToPolicy(sqsSts);
+    jobRole.addToPolicy(ddbSts);
   }
 }

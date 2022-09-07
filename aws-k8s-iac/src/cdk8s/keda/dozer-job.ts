@@ -1,13 +1,17 @@
 import { Chart } from 'cdk8s';
 import { Construct } from 'constructs';
 import { ScaledJob } from '../imports/keda.sh';
-import { AWS_REGION, DOZER_SQS_URL } from './constants';
 
+export interface AwsResources {
+  sqlUrl: string;
+  ddbTableArn: string;
+  region: string;
+}
 export class DozerKedaJob extends Chart {
-  constructor(scope: Construct, name: string) {
+  constructor(scope: Construct, name: string, props: AwsResources) {
     super(scope, name);
 
-    new ScaledJob(this, 'KedaDailyStartStop', {
+    new ScaledJob(this, 'KedaDozerJob', {
       metadata: {
         name: name,
       },
@@ -18,6 +22,10 @@ export class DozerKedaJob extends Chart {
               containers: [{
                 name: 'dozer-process-job',
                 image: '107858015234.dkr.ecr.ap-southeast-1.amazonaws.com/dozer/process-job:latest',
+                env: [
+                  { name: 'AWS_SQS_URL', value: props.sqlUrl },
+                  { name: 'AWS_DDB_TABLE', value: props.ddbTableArn },
+                ],
               }],
               restartPolicy: 'Never',
               tolerations: [{
@@ -52,9 +60,9 @@ export class DozerKedaJob extends Chart {
         triggers: [{
           type: 'aws-sqs-queue',
           metadata: {
-            queueURL: DOZER_SQS_URL,
+            queueURL: props.sqlUrl,
             queueLength: '1',
-            awsRegion: AWS_REGION,
+            awsRegion: props.region,
             scaleOnInFlight: 'false',
             identityOwner: 'operator',
           },

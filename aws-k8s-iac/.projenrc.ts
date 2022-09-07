@@ -7,7 +7,8 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   deps: [
     'env-var', 'dotenv',
     '@aws-quickstart/eks-blueprints@1.2.0', '@aws-cdk/aws-apigatewayv2-alpha', '@aws-cdk/aws-lambda-python-alpha',
-    '@aws-cdk/aws-apigatewayv2-integrations-alpha'
+    '@aws-cdk/aws-apigatewayv2-integrations-alpha',
+    'cdk8s', 'cdk8s-plus-24@2.0.0-rc.99', 'dotenv', 'aws-cdk-lib', 'child_process'
   ]
 
   // deps: [],                /* Runtime dependencies of this module. */
@@ -16,8 +17,8 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   // packageName: undefined,  /* The "name" in package.json. */
 });
 
-const dotEnvFile = '.env'
-project.gitignore.addPatterns(dotEnvFile)
 project.gitignore.addPatterns('node_modules')
+project.gitignore.addPatterns('.env');
+project.gitignore.addPatterns('*.yaml');
 
 project.synth();

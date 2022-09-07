@@ -50,5 +50,6 @@ junit.xml
 /cdk.out/
 .cdk.staging/
 .parcel-cache/
-.env
 node_modules
+.env
+*.yaml
