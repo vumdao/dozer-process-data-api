@@ -191,6 +191,10 @@
   <img src=images/diagram.png width=1900>
 
 ## 🚀 **Test API** <a name="Test-API"></a>
+- Overview of HTTP API Gateway
+
+  <img src=images/httpapi.png width=1100>
+
 - Create a new job that runs on a kubernetes cluster
   - Send `POST` request
   ```
