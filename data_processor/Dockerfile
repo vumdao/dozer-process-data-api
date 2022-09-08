@@ -26,8 +26,6 @@ FROM rust:1
 COPY --from=builder /data-processor/target/release/data-processor-sample /data-processor-sample
 COPY --from=builder /etc/passwd /etc/passwd
 
-ENV AWS_SQS_URL=https://sqs.ap-southeast-1.amazonaws.com/107858015234/sin-d1-dozer-sqs.fifo
-
 USER rust
 
 ENTRYPOINT ["/data-processor-sample"]

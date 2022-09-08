@@ -59,9 +59,12 @@ def push_event_bridge_rule(cron):
     _cron = cron.split()
     if _cron[4] == '*':
       _cron[4] = '?'
+    else:
+      _cron[2] = '?'
     _cron.append('*')
     target_cron = ' '.join(_cron)
 
+    print(f'Create eventbridge schedule at {target_cron}')
     rule_name = f'push-sqs-msg-{random.randint(0,2000)}'
     client.put_rule(
       Description=f'Rule to send SQS message at {target_cron} schedule',
@@ -80,6 +83,7 @@ def push_event_bridge_rule(cron):
         }
       }]
     )
+    return True
   except Exception as err:
     print(f"Got error of creating event bridge rule, error {err}")
     return False

@@ -6,7 +6,12 @@ use aws_config::meta::region::RegionProviderChain;
 use aws_sdk_dynamodb::model::AttributeValue;
 use tokio_stream::StreamExt;
 
-
+/*
+There are three main task in this project
+    1. Processing job
+    2. Consume and delete SQS message
+    3. Write succeed, fail and retry state to dynamodb
+*/
 #[tokio::main]
 async fn main() {
     env_logger::init();
