@@ -14,7 +14,7 @@
   - `GET /jobs/stats`  		(Returns aggregate job stats. Succeeded vs failed and  no of retries)
   - `POST  /jobs/schedule`		(Schedule a job using cron syntax)
 - The project is wrritten in Rust and we need to containerize the project to serve following
-  - Each job should spawn a docker container with the following command.
+  - Each job should spawn a docker container and run Rust function from binary script.
   - If the job fails, retry 2 times with a small time delay ideally.
 
 ## Abstract
