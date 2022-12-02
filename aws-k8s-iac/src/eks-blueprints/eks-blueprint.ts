@@ -17,7 +17,7 @@ export function EksAddOns(): Array<ClusterAddOn> {
       mode: Mode.IMDS,
     }),
     new KarpenterAddOn({
-      version: '0.16.1',
+      version: '0.16.3',
       release: 'karpenter',
     }),
     new EbsCsiDriverAddOn
@@ -42,7 +42,7 @@ export const PlatformAdmin = new PlatformTeam({
 
 export function EksComponents(env: EnvironmentConfig) {
   const AsgProvider = new AsgClusterProvider({
-    version: KubernetesVersion.V1_21,
+    version: KubernetesVersion.V1_23,
     id: `${env.pattern}-${env.stage}-ASG`,
     autoScalingGroupName: `${env.pattern}-${env.stage}-ASG`,
     minSize: 2,

@@ -3,7 +3,6 @@ import { Construct } from 'constructs';
 import { Provisioner } from '../imports/karpenter.sh';
 import { DEV_KARPENTER_INSTANCE_PROFILE } from './provisioner-constants';
 
-
 export interface EksResources {
   clusterName: string;
 }

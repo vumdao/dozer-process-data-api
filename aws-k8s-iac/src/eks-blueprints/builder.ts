@@ -21,7 +21,7 @@ export function buildCluster(scope: Construct, reg: EnvironmentConfig): Promise<
       .account(reg.account)
       .region(reg.region)
       .addOns(...AddOns)
-      .version(KubernetesVersion.V1_21)
+      .version(KubernetesVersion.V1_23)
       .teams(...appTeams, PlatformAdmin)
       .clusterProvider(EksComponents(reg))
       .build(scope, `${eksName}-eks-blueprint`, {

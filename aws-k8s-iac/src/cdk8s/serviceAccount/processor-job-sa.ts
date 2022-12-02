@@ -1,5 +1,5 @@
 import { Chart } from 'cdk8s';
-import { ServiceAccount } from 'cdk8s-plus-24';
+import { ServiceAccount } from 'cdk8s-plus-25';
 import { Construct } from 'constructs';
 
 export interface AwsProps {

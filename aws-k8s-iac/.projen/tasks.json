@@ -201,19 +201,19 @@
           "exec": "yarn upgrade npm-check-updates"
         },
         {
-          "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='@aws-quickstart/eks-blueprints,cdk8s-plus-24'"
+          "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='@aws-quickstart/eks-blueprints'"
         },
         {
-          "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='@aws-quickstart/eks-blueprints,cdk8s-plus-24'"
+          "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='@aws-quickstart/eks-blueprints'"
         },
         {
-          "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='@aws-quickstart/eks-blueprints,cdk8s-plus-24'"
+          "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='@aws-quickstart/eks-blueprints'"
         },
         {
-          "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='@aws-quickstart/eks-blueprints,cdk8s-plus-24'"
+          "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='@aws-quickstart/eks-blueprints'"
         },
         {
-          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='@aws-quickstart/eks-blueprints,cdk8s-plus-24'"
+          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='@aws-quickstart/eks-blueprints'"
         },
         {
           "exec": "yarn install --check-files"

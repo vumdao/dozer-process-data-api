@@ -15,7 +15,7 @@ export class Provisioner extends ApiObject {
   public static readonly GVK: GroupVersionKind = {
     apiVersion: 'karpenter.sh/v1alpha5',
     kind: 'Provisioner',
-  };
+  }
 
   /**
    * Renders a Kubernetes manifest for "Provisioner".
@@ -98,6 +98,13 @@ export function toJson_ProvisionerProps(obj: ProvisionerProps | undefined): Reco
  * @schema ProvisionerSpec
  */
 export interface ProvisionerSpec {
+  /**
+   * Annotations are applied to every node.
+   *
+   * @schema ProvisionerSpec#annotations
+   */
+  readonly annotations?: { [key: string]: string };
+
   /**
    * Consolidation are the consolidation parameters
    *
@@ -193,6 +200,7 @@ export interface ProvisionerSpec {
 export function toJson_ProvisionerSpec(obj: ProvisionerSpec | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'annotations': ((obj.annotations) === undefined) ? undefined : (Object.entries(obj.annotations).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
     'consolidation': toJson_ProvisionerSpecConsolidation(obj.consolidation),
     'kubeletConfiguration': toJson_ProvisionerSpecKubeletConfiguration(obj.kubeletConfiguration),
     'labels': ((obj.labels) === undefined) ? undefined : (Object.entries(obj.labels).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
@@ -261,11 +269,53 @@ export interface ProvisionerSpecKubeletConfiguration {
   readonly containerRuntime?: string;
 
   /**
+   * EvictionHard is the map of signal names to quantities that define hard eviction thresholds
+   *
+   * @schema ProvisionerSpecKubeletConfiguration#evictionHard
+   */
+  readonly evictionHard?: { [key: string]: string };
+
+  /**
+   * EvictionMaxPodGracePeriod is the maximum allowed grace period (in seconds) to use when terminating pods in response to soft eviction thresholds being met.
+   *
+   * @schema ProvisionerSpecKubeletConfiguration#evictionMaxPodGracePeriod
+   */
+  readonly evictionMaxPodGracePeriod?: number;
+
+  /**
+   * EvictionSoft is the map of signal names to quantities that define soft eviction thresholds
+   *
+   * @schema ProvisionerSpecKubeletConfiguration#evictionSoft
+   */
+  readonly evictionSoft?: { [key: string]: string };
+
+  /**
+   * EvictionSoftGracePeriod is the map of signal names to quantities that define grace periods for each eviction signal
+   *
+   * @schema ProvisionerSpecKubeletConfiguration#evictionSoftGracePeriod
+   */
+  readonly evictionSoftGracePeriod?: { [key: string]: string };
+
+  /**
+   * KubeReserved contains resources reserved for Kubernetes system components.
+   *
+   * @schema ProvisionerSpecKubeletConfiguration#kubeReserved
+   */
+  readonly kubeReserved?: { [key: string]: ProvisionerSpecKubeletConfigurationKubeReserved };
+
+  /**
    * MaxPods is an override for the maximum number of pods that can run on a worker node instance.
    *
    * @schema ProvisionerSpecKubeletConfiguration#maxPods
    */
   readonly maxPods?: number;
+
+  /**
+   * PodsPerCore is an override for the number of pods that can run on a worker node instance based on the number of cpu cores. This value cannot exceed MaxPods, so, if MaxPods is a lower value, that value will be used.
+   *
+   * @schema ProvisionerSpecKubeletConfiguration#podsPerCore
+   */
+  readonly podsPerCore?: number;
 
   /**
    * SystemReserved contains resources reserved for OS system daemons and kernel memory.
@@ -285,7 +335,13 @@ export function toJson_ProvisionerSpecKubeletConfiguration(obj: ProvisionerSpecK
   const result = {
     'clusterDNS': obj.clusterDns?.map(y => y),
     'containerRuntime': obj.containerRuntime,
+    'evictionHard': ((obj.evictionHard) === undefined) ? undefined : (Object.entries(obj.evictionHard).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'evictionMaxPodGracePeriod': obj.evictionMaxPodGracePeriod,
+    'evictionSoft': ((obj.evictionSoft) === undefined) ? undefined : (Object.entries(obj.evictionSoft).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'evictionSoftGracePeriod': ((obj.evictionSoftGracePeriod) === undefined) ? undefined : (Object.entries(obj.evictionSoftGracePeriod).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'kubeReserved': ((obj.kubeReserved) === undefined) ? undefined : (Object.entries(obj.kubeReserved).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1]?.value }), {})),
     'maxPods': obj.maxPods,
+    'podsPerCore': obj.podsPerCore,
     'systemReserved': ((obj.systemReserved) === undefined) ? undefined : (Object.entries(obj.systemReserved).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1]?.value }), {})),
   };
   // filter undefined values
@@ -517,6 +573,20 @@ export function toJson_ProvisionerSpecTaints(obj: ProvisionerSpecTaints | undefi
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
 }
 /* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ProvisionerSpecKubeletConfigurationKubeReserved
+ */
+export class ProvisionerSpecKubeletConfigurationKubeReserved {
+  public static fromNumber(value: number): ProvisionerSpecKubeletConfigurationKubeReserved {
+    return new ProvisionerSpecKubeletConfigurationKubeReserved(value);
+  }
+  public static fromString(value: string): ProvisionerSpecKubeletConfigurationKubeReserved {
+    return new ProvisionerSpecKubeletConfigurationKubeReserved(value);
+  }
+  private constructor(public readonly value: any) {
+  }
+}
 
 /**
  * @schema ProvisionerSpecKubeletConfigurationSystemReserved

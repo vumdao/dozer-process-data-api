@@ -15,7 +15,7 @@ export class ClusterTriggerAuthentication extends ApiObject {
   public static readonly GVK: GroupVersionKind = {
     apiVersion: 'keda.sh/v1alpha1',
     kind: 'ClusterTriggerAuthentication',
-  };
+  }
 
   /**
    * Renders a Kubernetes manifest for "ClusterTriggerAuthentication".
@@ -651,7 +651,7 @@ export class ScaledJob extends ApiObject {
   public static readonly GVK: GroupVersionKind = {
     apiVersion: 'keda.sh/v1alpha1',
     kind: 'ScaledJob',
-  };
+  }
 
   /**
    * Renders a Kubernetes manifest for "ScaledJob".
@@ -2891,7 +2891,6 @@ export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinity {
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinity#preferredDuringSchedulingIgnoredDuringExecution
    */
-  /* eslint-disable max-len, quote-props */
   readonly preferredDuringSchedulingIgnoredDuringExecution?: ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution[];
 
   /**
@@ -2899,7 +2898,6 @@ export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinity {
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinity#requiredDuringSchedulingIgnoredDuringExecution
    */
-  /* eslint-disable max-len, quote-props */
   readonly requiredDuringSchedulingIgnoredDuringExecution?: ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution;
 
 }
@@ -2930,7 +2928,6 @@ export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinity {
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinity#preferredDuringSchedulingIgnoredDuringExecution
    */
-  /* eslint-disable max-len, quote-props */
   readonly preferredDuringSchedulingIgnoredDuringExecution?: ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution[];
 
   /**
@@ -2938,7 +2935,6 @@ export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinity {
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinity#requiredDuringSchedulingIgnoredDuringExecution
    */
-  /* eslint-disable max-len, quote-props */
   readonly requiredDuringSchedulingIgnoredDuringExecution?: ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution[];
 
 }
@@ -2969,7 +2965,6 @@ export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinity {
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinity#preferredDuringSchedulingIgnoredDuringExecution
    */
-  /* eslint-disable max-len, quote-props */
   readonly preferredDuringSchedulingIgnoredDuringExecution?: ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution[];
 
   /**
@@ -2977,7 +2972,6 @@ export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinity {
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinity#requiredDuringSchedulingIgnoredDuringExecution
    */
-  /* eslint-disable max-len, quote-props */
   readonly requiredDuringSchedulingIgnoredDuringExecution?: ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution[];
 
 }
@@ -7199,7 +7193,6 @@ export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinityRequir
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution#nodeSelectorTerms
    */
-  /* eslint-disable max-len, quote-props */
   readonly nodeSelectorTerms: ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms[];
 
 }
@@ -7229,7 +7222,6 @@ export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityPreferr
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution#podAffinityTerm
    */
-  /* eslint-disable max-len, quote-props */
   readonly podAffinityTerm: ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm;
 
   /**
@@ -7267,7 +7259,6 @@ export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityRequire
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution#labelSelector
    */
-  /* eslint-disable max-len, quote-props */
   readonly labelSelector?: ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector;
 
   /**
@@ -7275,7 +7266,6 @@ export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityRequire
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution#namespaceSelector
    */
-  /* eslint-disable max-len, quote-props */
   readonly namespaceSelector?: ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionNamespaceSelector;
 
   /**
@@ -7322,7 +7312,6 @@ export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityPre
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution#podAffinityTerm
    */
-  /* eslint-disable max-len, quote-props */
   readonly podAffinityTerm: ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm;
 
   /**
@@ -7367,7 +7356,6 @@ export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityReq
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution#namespaceSelector
    */
-  /* eslint-disable max-len, quote-props */
   readonly namespaceSelector?: ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionNamespaceSelector;
 
   /**
@@ -10716,14 +10704,12 @@ export function toJson_ScaledJobSpecJobTargetRefTemplateSpecVolumesStorageosSecr
  *
  * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference
  */
-/* eslint-disable max-len, quote-props */
 export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference {
   /**
    * A list of node selector requirements by node's labels.
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference#matchExpressions
    */
-  /* eslint-disable max-len, quote-props */
   readonly matchExpressions?: ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions[];
 
   /**
@@ -10731,7 +10717,6 @@ export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinityPrefer
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference#matchFields
    */
-  /* eslint-disable max-len, quote-props */
   readonly matchFields?: ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields[];
 
 }
@@ -10762,7 +10747,6 @@ export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinityRequir
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms#matchExpressions
    */
-  /* eslint-disable max-len, quote-props */
   readonly matchExpressions?: ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions[];
 
   /**
@@ -10770,7 +10754,6 @@ export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinityRequir
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms#matchFields
    */
-  /* eslint-disable max-len, quote-props */
   readonly matchFields?: ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields[];
 
 }
@@ -10801,7 +10784,6 @@ export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityPreferr
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm#labelSelector
    */
-  /* eslint-disable max-len, quote-props */
   readonly labelSelector?: ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector;
 
   /**
@@ -10809,7 +10791,6 @@ export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityPreferr
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm#namespaceSelector
    */
-  /* eslint-disable max-len, quote-props */
   readonly namespaceSelector?: ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermNamespaceSelector;
 
   /**
@@ -10850,14 +10831,12 @@ export function toJson_ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityP
  *
  * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector
  */
-/* eslint-disable max-len, quote-props */
 export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector {
   /**
    * matchExpressions is a list of label selector requirements. The requirements are ANDed.
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector#matchExpressions
    */
-  /* eslint-disable max-len, quote-props */
   readonly matchExpressions?: ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions[];
 
   /**
@@ -10889,14 +10868,12 @@ export function toJson_ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityR
  *
  * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionNamespaceSelector
  */
-/* eslint-disable max-len, quote-props */
 export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionNamespaceSelector {
   /**
    * matchExpressions is a list of label selector requirements. The requirements are ANDed.
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionNamespaceSelector#matchExpressions
    */
-  /* eslint-disable max-len, quote-props */
   readonly matchExpressions?: ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionNamespaceSelectorMatchExpressions[];
 
   /**
@@ -10928,14 +10905,12 @@ export function toJson_ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityR
  *
  * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm
  */
-/* eslint-disable max-len, quote-props */
 export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm {
   /**
    * A label query over a set of resources, in this case pods.
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm#labelSelector
    */
-  /* eslint-disable max-len, quote-props */
   readonly labelSelector?: ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector;
 
   /**
@@ -10943,7 +10918,6 @@ export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityPre
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm#namespaceSelector
    */
-  /* eslint-disable max-len, quote-props */
   readonly namespaceSelector?: ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermNamespaceSelector;
 
   /**
@@ -10984,14 +10958,12 @@ export function toJson_ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffin
  *
  * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector
  */
-/* eslint-disable max-len, quote-props */
 export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector {
   /**
    * matchExpressions is a list of label selector requirements. The requirements are ANDed.
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector#matchExpressions
    */
-  /* eslint-disable max-len, quote-props */
   readonly matchExpressions?: ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions[];
 
   /**
@@ -11029,7 +11001,6 @@ export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityReq
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionNamespaceSelector#matchExpressions
    */
-  /* eslint-disable max-len, quote-props */
   readonly matchExpressions?: ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionNamespaceSelectorMatchExpressions[];
 
   /**
@@ -13388,7 +13359,6 @@ export function toJson_ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinity
  *
  * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions
  */
-/* eslint-disable max-len, quote-props */
 export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions {
   /**
    * The label key that the selector applies to.
@@ -13434,7 +13404,6 @@ export function toJson_ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinity
  *
  * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields
  */
-/* eslint-disable max-len, quote-props */
 export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields {
   /**
    * The label key that the selector applies to.
@@ -13480,14 +13449,12 @@ export function toJson_ScaledJobSpecJobTargetRefTemplateSpecAffinityNodeAffinity
  *
  * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector
  */
-/* eslint-disable max-len, quote-props */
 export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector {
   /**
    * matchExpressions is a list of label selector requirements. The requirements are ANDed.
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector#matchExpressions
    */
-  /* eslint-disable max-len, quote-props */
   readonly matchExpressions?: ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions[];
 
   /**
@@ -13519,14 +13486,12 @@ export function toJson_ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityP
  *
  * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermNamespaceSelector
  */
-/* eslint-disable max-len, quote-props */
 export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermNamespaceSelector {
   /**
    * matchExpressions is a list of label selector requirements. The requirements are ANDed.
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermNamespaceSelector#matchExpressions
    */
-  /* eslint-disable max-len, quote-props */
   readonly matchExpressions?: ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermNamespaceSelectorMatchExpressions[];
 
   /**
@@ -13558,7 +13523,6 @@ export function toJson_ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityP
  *
  * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions
  */
-/* eslint-disable max-len, quote-props */
 export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions {
   /**
    * key is the label key that the selector applies to.
@@ -13604,7 +13568,6 @@ export function toJson_ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityR
  *
  * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionNamespaceSelectorMatchExpressions
  */
-/* eslint-disable max-len, quote-props */
 export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionNamespaceSelectorMatchExpressions {
   /**
    * key is the label key that the selector applies to.
@@ -13650,14 +13613,12 @@ export function toJson_ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityR
  *
  * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector
  */
-/* eslint-disable max-len, quote-props */
 export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector {
   /**
    * matchExpressions is a list of label selector requirements. The requirements are ANDed.
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector#matchExpressions
    */
-  /* eslint-disable max-len, quote-props */
   readonly matchExpressions?: ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions[];
 
   /**
@@ -13689,14 +13650,12 @@ export function toJson_ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffin
  *
  * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermNamespaceSelector
  */
-/* eslint-disable max-len, quote-props */
 export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermNamespaceSelector {
   /**
    * matchExpressions is a list of label selector requirements. The requirements are ANDed.
    *
    * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermNamespaceSelector#matchExpressions
    */
-  /* eslint-disable max-len, quote-props */
   readonly matchExpressions?: ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermNamespaceSelectorMatchExpressions[];
 
   /**
@@ -13728,7 +13687,6 @@ export function toJson_ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffin
  *
  * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions
  */
-/* eslint-disable max-len, quote-props */
 export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions {
   /**
    * key is the label key that the selector applies to.
@@ -13774,7 +13732,6 @@ export function toJson_ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffin
  *
  * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionNamespaceSelectorMatchExpressions
  */
-/* eslint-disable max-len, quote-props */
 export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionNamespaceSelectorMatchExpressions {
   /**
    * key is the label key that the selector applies to.
@@ -14605,7 +14562,6 @@ export function toJson_ScaledJobSpecJobTargetRefTemplateSpecVolumesProjectedSour
  *
  * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions
  */
-/* eslint-disable max-len, quote-props */
 export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions {
   /**
    * key is the label key that the selector applies to.
@@ -14651,7 +14607,6 @@ export function toJson_ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityP
  *
  * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermNamespaceSelectorMatchExpressions
  */
-/* eslint-disable max-len, quote-props */
 export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermNamespaceSelectorMatchExpressions {
   /**
    * key is the label key that the selector applies to.
@@ -14697,7 +14652,6 @@ export function toJson_ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAffinityP
  *
  * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions
  */
-/* eslint-disable max-len, quote-props */
 export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions {
   /**
    * key is the label key that the selector applies to.
@@ -14743,7 +14697,6 @@ export function toJson_ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffin
  *
  * @schema ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermNamespaceSelectorMatchExpressions
  */
-/* eslint-disable max-len, quote-props */
 export interface ScaledJobSpecJobTargetRefTemplateSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermNamespaceSelectorMatchExpressions {
   /**
    * key is the label key that the selector applies to.
@@ -14968,7 +14921,7 @@ export class ScaledObject extends ApiObject {
   public static readonly GVK: GroupVersionKind = {
     apiVersion: 'keda.sh/v1alpha1',
     kind: 'ScaledObject',
-  };
+  }
 
   /**
    * Renders a Kubernetes manifest for "ScaledObject".
@@ -15595,7 +15548,7 @@ export class TriggerAuthentication extends ApiObject {
   public static readonly GVK: GroupVersionKind = {
     apiVersion: 'keda.sh/v1alpha1',
     kind: 'TriggerAuthentication',
-  };
+  }
 
   /**
    * Renders a Kubernetes manifest for "TriggerAuthentication".

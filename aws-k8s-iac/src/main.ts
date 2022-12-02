@@ -82,6 +82,7 @@ export class EksClusterStack extends Stack {
       _cluster.addCdk8sChart('DozerJob', dozerJob);
       _cluster.addCdk8sChart('DozerProvisioner', dozerProvisioner);
       _cluster.addCdk8sChart('DozerIRSA', dozerSa);
+
     });
   }
 }
