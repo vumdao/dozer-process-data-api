@@ -75,7 +75,7 @@ export class EksClusterStack extends Stack {
         outdir: 'dist/sa',
       });
       const dozerSa = new DozerJobSA(sa, 'dozer-job-sa', {
-        roleArn: `arn:aws:iam::107858015234:role/${reg.pattern}-${reg.stage}-dozer-role`
+        roleArn: `arn:aws:iam::123456789012:role/${reg.pattern}-${reg.stage}-dozer-role`
       });
       sa.synth()
 

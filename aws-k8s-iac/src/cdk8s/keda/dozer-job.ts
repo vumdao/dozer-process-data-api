@@ -21,7 +21,7 @@ export class DozerKedaJob extends Chart {
             spec: {
               containers: [{
                 name: 'dozer-process-job',
-                image: '107858015234.dkr.ecr.ap-southeast-1.amazonaws.com/dozer/process-job:latest',
+                image: '123456789012.dkr.ecr.ap-southeast-1.amazonaws.com/dozer/process-job:latest',
                 env: [
                   { name: 'AWS_SQS_URL', value: props.sqlUrl },
                   { name: 'AWS_DDB_TABLE', value: props.ddbTableName },
